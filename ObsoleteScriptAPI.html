@@ -12,65 +12,56 @@
 <body>
 
 
+  <div class="header-bg"></div>
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
+      <script src="js/mark.min.js"></script>
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
-    <h1>
-      <a href="index.html">AGS Manual</a>
-    </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
     </ul>
-<ul>
-<li><a href="#obsolete-script-api"><span>Obsolete Script API</span></a></li>
-</ul>
   </nav>
 
-  <main>
+  <div class="content">
+    <article>
+      <main>
 <section id="obsolete-script-api" class="level2">
 <h2><a href="#obsolete-script-api">Obsolete Script API</a></h2>
 <p>As new versions of AGS are released this sometimes bring changes to the script commands. Following table lists the functions and variables removed from the Script API, their replacements (when available) and the version in which the change took place.</p>
@@ -205,7 +196,7 @@
 </tr>
 <tr class="odd">
 <td><code>character[].inv</code></td>
-<td>[<code>Character.InventoryQuantity[</code>]``](Character#characterinventoryquantity)</td>
+<td><a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity[]</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -295,7 +286,7 @@
 </tr>
 <tr class="odd">
 <td><a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></td>
-<td>This property was used to multiply by 2 the coordinates in 640x400 resolution games.</td>
+<td>This property was used to multiply the coordinates by 2 in 640x400/480 resolution games.</td>
 <td>3.5.0</td>
 </tr>
 <tr class="even">
@@ -440,7 +431,7 @@
 </tr>
 <tr class="even">
 <td><code>game.speech_music_drop</code></td>
-<td><a href="Multimedia.html#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></td>
+<td><a href="Game.html#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -450,7 +441,7 @@
 </tr>
 <tr class="even">
 <td><code>Game.StopSound</code></td>
-<td><a href="Multimedia.html#gamestopaudio"><code>Game.StopAudio</code></a></td>
+<td><a href="Game.html#gamestopaudio"><code>Game.StopAudio</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -510,67 +501,67 @@
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_FRAMExxx)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetViewFrame</code></a></td>
+<td><a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_ISFRAMEFLIPPED)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetViewFrame</code></a></td>
+<td><a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_NUMCHARACTERS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.CharacterCount</code></a></td>
+<td><a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_NUMFRAMES)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetFrameCountForLoop</code></a></td>
+<td><a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(gp_numguis)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GUICount</code></a></td>
+<td><a href="Game.html#gameguicount"><code>Game.GUICount</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_NUMINVITEMS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.InventoryItemCount</code></a></td>
+<td><a href="Game.html#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_NUMLOOPS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetLoopCountForView</code></a></td>
+<td><a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(gp_numobjects)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Room.ObjectCount</code></a></td>
+<td><a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(gp_spriteheight)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.SpriteHeight</code></a></td>
+<td><a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(gp_spritewidth)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.SpriteWidth</code></a></td>
+<td><a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGlobalInt</code></td>
-<td><a href="Globalfunctions_General.html#getglobalint"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGlobalString</code></td>
-<td><a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGraphicalVariable</code></td>
-<td><a href="Globalfunctions_General.html#getgraphicalvariable"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -705,7 +696,7 @@
 </tr>
 <tr class="odd">
 <td><code>GetPlayerCharacter</code></td>
-<td><a href="Globalfunctions_General.html#getplayercharacter"><code>player.ID</code></a></td>
+<td>Use <code>player</code> pointer</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -755,17 +746,17 @@
 </tr>
 <tr class="odd">
 <td><code>GetViewportX</code></td>
-<td><a href="Globalfunctions_Room.html#getviewportx"><code>Game.Camera.X</code></a></td>
+<td><a href="Camera.html#camerax"><code>Game.Camera.X</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetViewportY</code></td>
-<td><a href="Globalfunctions_Room.html#getviewporty"><code>Game.Camera.Y</code></a></td>
+<td><a href="Camera.html#cameray"><code>Game.Camera.Y</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetWalkableAreaAt</code></td>
-<td><a href="Globalfunctions_Room.html#getwalkableareaat"><code>GetWalkableAreaAtScreen</code></a></td>
+<td><a href="Globalfunctions_Room.html#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -825,7 +816,7 @@
 </tr>
 <tr class="odd">
 <td><code>InventoryScreen</code></td>
-<td><a href="Globalfunctions_General.html#inventoryscreen"><code>create your own Inventory GUI</code></a></td>
+<td><a href="EditorGUI.html">create your own Inventory GUI</a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -885,7 +876,7 @@
 </tr>
 <tr class="odd">
 <td><code>ListBox.GetItemText</code></td>
-<td>[<code>ListBox.Items[</code>]``](ListBox#listboxitems)</td>
+<td><a href="ListBox.html#listboxitems"><code>ListBox.Items[]</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -900,7 +891,7 @@
 </tr>
 <tr class="even">
 <td><code>ListBox.SetItemText</code></td>
-<td>[<code>ListBox.Items[</code>]``](ListBox#listboxitems)</td>
+<td><a href="ListBox.html#listboxitems"><code>ListBox.Items[]</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -920,7 +911,7 @@
 </tr>
 <tr class="even">
 <td><code>ListBoxGetItemText</code></td>
-<td>[<code>ListBox.Items[</code>]``](ListBox#listboxitems)</td>
+<td><a href="ListBox.html#listboxitems"><code>ListBox.Items[]</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1005,12 +996,12 @@
 </tr>
 <tr class="odd">
 <td><code>MoveCharacterToHotspot</code></td>
-<td><a href="Globalfunctions_General.html#movecharactertohotspot"><code>Character.Walk</code></a></td>
+<td><a href="Character.html#characterwalk"><code>Character.Walk</code></a> and <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX/Y</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>MoveCharacterToObject</code></td>
-<td><a href="Globalfunctions_General.html#movecharactertoobject"><code>Character.Walk</code></a></td>
+<td><a href="Character.html#characterwalk"><code>Character.Walk</code></a> and <a href="Object.html#objectx"><code>Object.X/Y</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1205,7 +1196,7 @@
 </tr>
 <tr class="odd">
 <td><code>ReleaseViewport</code></td>
-<td><a href="Globalfunctions_Room.html#releaseviewport"><code>Game.Camera.AutoTracking</code></a></td>
+<td><a href="Camera.html#cameraautotracking"><code>Game.Camera.AutoTracking</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1260,7 +1251,7 @@
 </tr>
 <tr class="even">
 <td><code>savegameindex[]</code></td>
-<td>[<code>ListBox.SaveGameSlots[</code>]``](ListBox#listboxsavegameslots)</td>
+<td><a href="ListBox.html#listboxsavegameslots"><code>ListBox.SaveGameSlots[]</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1430,17 +1421,17 @@
 </tr>
 <tr class="even">
 <td><code>SetGlobalInt</code></td>
-<td><a href="Globalfunctions_General.html#setglobalint"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>SetGlobalString</code></td>
-<td><a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>SetGraphicalVariable</code></td>
-<td><a href="Globalfunctions_General.html#setgraphicalvariable"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1625,7 +1616,7 @@
 </tr>
 <tr class="odd">
 <td><code>SetSoundVolume</code></td>
-<td><a href="Multimedia.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></td>
+<td><a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1660,7 +1651,7 @@
 </tr>
 <tr class="even">
 <td><a href="Globalfunctions_Room.html#setviewport"><code>SetViewport</code></a></td>
-<td><a href="Game.html#gamecamera"><code>Game.Camera.SetAt</code></a></td>
+<td><a href="Camera.html#camerasetat"><code>Game.Camera.SetAt</code></a></td>
 <td>3.5.0</td>
 </tr>
 <tr class="odd">
@@ -1690,7 +1681,7 @@
 </tr>
 <tr class="even">
 <td><code>StopMusic</code></td>
-<td><a href="Multimedia.html#gamestopaudio"><code>Game.StopAudio</code></a></td>
+<td><a href="Game.html#gamestopaudio"><code>Game.StopAudio</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1730,7 +1721,7 @@
 </tr>
 <tr class="even">
 <td><code>StrGetCharAt</code></td>
-<td>[<code>String.Chars[</code>]``](String#stringchars)</td>
+<td><a href="String.html#stringchars"><code>String.Chars[]</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1826,14 +1817,29 @@
 </tbody>
 </table>
 </section>
-  </main>
-
-
-  <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
-  </footer>
-
-  <script src="js/search.js"></script>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob//ObsoleteScriptAPI.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 281c2564d6eda7115bf7f0063f301dbee7b5d2b2
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#obsolete-script-api" id="toc-obsolete-script-api">Obsolete Script API</a></li>
+</ul>
+    </aside>
   </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
 </body>
 </html>

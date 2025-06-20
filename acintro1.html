@@ -12,75 +12,60 @@
 <body>
 
 
+  <div class="header-bg"></div>
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+      
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
+      <script src="js/mark.min.js"></script>
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
-    <h1>
-      <a href="index.html">AGS Manual</a>
-    </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
     </ul>
-<ul>
-<li><a href="#getting-started-with-ags"><span>Getting Started with AGS</span></a>
-<ul>
-<li><a href="#creating-the-game"><span>Creating the game</span></a></li>
-<li><a href="#starting-off"><span>Starting off</span></a></li>
-<li><a href="#color-choices"><span>Color choices</span></a></li>
-<li><a href="#game-resolution"><span>Game Resolution</span></a></li>
-</ul></li>
-</ul>
   </nav>
 
-  <main>
+  <div class="content">
+    <article>
+      <main>
 <section id="getting-started-with-ags" class="level2">
 <h2><a href="#getting-started-with-ags">Getting Started with AGS</a></h2>
 <p>So, you've downloaded AGS. You want to make an adventure game. But where do you start?</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Before we start, this tutorial was made using v3.5 of AGS. If you have a newer version, there may be minor inconsistencies in the screenshots where extra options have been added and so forth, but most of what's here should still apply).</p>
+<p><strong>NOTE:</strong> Before we start, this tutorial was made using v3.5 of AGS. If you have a newer version, there may be minor inconsistencies in the screenshots where extra options have been added and so forth, but most of what's here should still apply.</p>
 <section id="creating-the-game" class="level3">
 <h3><a href="#creating-the-game">Creating the game</a></h3>
 <p>Start up the AGS Editor by double-clicking the <em>AGSEditor.exe</em> file, and you should be greeted by the following screen:</p>
@@ -91,11 +76,11 @@
 <p><img src="images/acintro1_03.png" alt="Select Template dialog" /></p>
 <p>Here, you need to choose which template you're going to use for your new game. AGS comes with several, and you can find others for download on the AGS Forums.</p>
 <p>The <strong>"Sierra-style"</strong> template is what we'll be using, as it has classic Sierra adventure game UI and comes with some default graphics to get you started quickly.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: The <strong>"Empty Game"</strong> template is something you may want to use later on when you're familiar with AGS as it comes with no default graphics at all.)</p>
+<p><strong>NOTE:</strong> The <strong>"Empty Game"</strong> template is something you may want to use later on when you're familiar with AGS as it comes with no default graphics at all.</p>
 <p>So, select <strong>"Sierra-style"</strong> and click <strong>Next</strong>.</p>
 <p><img src="images/acintro1_04.png" alt="Game Name dialog" /></p>
 <p>Finally, you need to decide on what to call your game.</p>
-<ol>
+<ol type="1">
 <li>In the first box you can type the full name for your game. This is what will be displayed in the game title bar when it's running in a window, and it's used for a couple of other things too. For the purposes of this tutorial, I'm going to call it the incredibly lame <strong>"Roger's Adventure"</strong>, but you can use whatever you like.</li>
 <li>The second box asks you for the game's <em>file name.</em> This is only used for the name of the folder that your game is created in, and the name of the final EXE file you compile.</li>
 <li>The third box allows you to choose where AGS should put the game files -- the default is your My Documents folder, and I'm going to stick with that.</li>
@@ -109,10 +94,10 @@
 <p>The main way that you navigate around the editor is using the <strong>Project Tree</strong> in the top-right corner, which allows you to access all the various parts of your game. Let's start by scrolling to the top of the Project Tree, and double-clicking the <strong>"General Settings"</strong> node:</p>
 <p><img src="images/acintro1_06.png" alt="The General Settings pane" /></p>
 <p>This screenshot above demonstrates three of the main editor features.</p>
-<ol>
+<ol type="1">
 <li>The <strong>Project Tree</strong>, as we've already discussed, gives you access to the various parts of your game.</li>
 <li>The <strong>Properties Grid</strong>, in the bottom-right, is where item-specific properties are accessed. It's not used in the Game Settings window, but we'll see it in action soon!</li>
-<li>Finally, the <strong>Open Windows</strong> tab bar at the top the AGS Editor allows you to have several windows open at once, and they are shown as tabs so that you can easily switch between them. (<strong>NOTE</strong>: You may use the Close button (X) at the end of the Open Windows tab bar to close a window once you're finished with it.)</li>
+<li>Finally, the <strong>Open Windows</strong> tab bar at the top the AGS Editor allows you to have several windows open at once, and they are shown as tabs so that you can easily switch between them. (<strong>NOTE:</strong> You may use the Close button (X) at the end of the Open Windows tab bar to close a window once you're finished with it.)</li>
 </ol>
 <p>Now, since we're on the Game Settings pane, let's briefly examine the various options we have in front of us. Make sure these options are enabled to begin with:</p>
 <ul>
@@ -140,7 +125,7 @@
 </section>
 <section id="creating-a-256-color-game" class="level4">
 <h4>Creating a 256-color game</h4>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you are following this tutorial to continue to work on "Roger's Adventure" game, then do not adjust your game to be 256-color.)</p>
+<p><strong>NOTE:</strong> If you are following this tutorial to continue to work on "Roger's Adventure" game, then do not adjust your game to be 256-color.</p>
 <ul>
 <li><p><strong>Setting the Color Depth:</strong> Back on the <strong>General Settings</strong> pane, check out the very top option in the list. It's called "Color depth", and all you have to do is change it to your desired color depth. A warning message will prompt you to make sure. Confirm it, and you're done.</p></li>
 <li><p><strong>Adjusting the Palette:</strong> Double-click the <strong>"Colors"</strong> node in the project tree. You should see this:</p></li>
@@ -154,7 +139,7 @@
 <p>We can now see the <strong>Properties Grid</strong> of the AGS Editor in action. Change the <strong>"ColorType"</strong> setting from <strong>"Background"</strong> to <strong>"Gamewide"</strong>, and you'll see the selected "X"s turn into various colors.</p>
 <p>If you select one of these colors you'll see its RGB color values in the Properties Grid, where you can adjust the color of that slot. If you don't want to do this manually for every color, you can set up slots 42-95 in another paint package, save a BMP file, and then right-click on the selected slots and choose the <strong>"Replace selected slots from file..."</strong> option.</p>
 <p>Which colors you use is up to you, and your choice will likely depend on the color scheme you're going for with your graphics.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.)</p>
+<p><strong>NOTE:</strong> You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.</p>
 </section>
 </section>
 <section id="game-resolution" class="level3">
@@ -166,14 +151,35 @@
 <p>Next Chapter: <a href="acintro2.html">Part 2 - Creating Your First Room</a></p>
 </section>
 </section>
-  </main>
-
-
-  <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
-  </footer>
-
-  <script src="js/search.js"></script>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob//acintro1.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 281c2564d6eda7115bf7f0063f301dbee7b5d2b2
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#getting-started-with-ags" id="toc-getting-started-with-ags">Getting Started with AGS</a>
+<ul>
+<li><a href="#creating-the-game" id="toc-creating-the-game">Creating the game</a></li>
+<li><a href="#starting-off" id="toc-starting-off">Starting off</a></li>
+<li><a href="#color-choices" id="toc-color-choices">Color choices</a></li>
+<li><a href="#game-resolution" id="toc-game-resolution">Game Resolution</a></li>
+</ul></li>
+</ul>
+    </aside>
   </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
 </body>
 </html>
