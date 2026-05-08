@@ -220,5 +220,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: artifacts/website_Linux_${{ env.PANDOC_VERSION }}
+          publish_dir: artifacts/ags4_website_Linux_${{ env.PANDOC_VERSION }}
           destination_dir: v4
