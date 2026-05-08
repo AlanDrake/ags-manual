@@ -189,7 +189,7 @@
 <h3><a href="#your-own-functions">Your Own Functions</a></h3>
 <p>You've probably noticed in the manual, it mentioning functions such as <code>repeatedly_execute</code>, and <code>on_event</code>, and how you can add them to your global script to do cool stuff. But you may be wondering, how exactly to go about it.</p>
 <p>Remember in <a href="ScriptingTutorialPart1.html#commands-explained">Scripting Tutorial 1</a>, we learned about function <strong>parameters</strong> and how they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">dialog_request</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// contents of function go here</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -198,22 +198,22 @@
 <p>Functions are useful if you have a block of script code that you need to use in two different places - putting it in a function instead means you don't have to copy &amp; paste, and that if you modify it, all other script that relies on it gets updated too.</p>
 <p>To call your function from elsewhere in the script, just do it exactly like you call a built-in function - i.e. just write its name, parameters then a semicolon.</p>
 <p>I think a couple of examples are in order. First of all, let's show a fixed function, <code>on_event</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span> <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventGotScore</span><span class="op">)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventAddInventory</span><span class="op">)</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data <span class="op">==</span> <span class="dv">5</span><span class="op">)</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            aSpecialScoreSound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            aSpecialItemSound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You just got %d points!&quot;</span><span class="op">,</span> data<span class="op">);</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You just got an item!&quot;</span><span class="op">,</span> data<span class="op">);</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>With this script, whenever the player scores points, they will get a message telling them so. Also, if they happen to get 5 points at once, it will play audio clip <em>aSpecialScoreSound</em>.</p>
+<p>With this script, whenever the player adds an inventory item, they will get a message telling them so. Also, if they happen to get an inventory item of id 5, it will play audio clip <em>aSpecialItemSound</em>.</p>
 <p>As you can see, you use the function parameters just like any other script variables.</p>
 <p><strong>Our own function</strong></p>
 <p>Now, suppose we have a special animation of the player doing a dance, and we want to be able to play it from various points in the script. By far the easiest way to do this would be to put it in a function:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">do_dance</span><span class="op">()</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">do_dance</span><span class="op">()</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">LockView</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
@@ -225,7 +225,7 @@
 <div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>do_dance<span class="op">();</span></span></code></pre></div>
 <p><strong>Returning a value</strong></p>
 <p>You may have noticed that some of the built-in functions, such as IsGamePaused, return a value to the script. You can do this from your own functions, using the <code>return</code> keyword. So:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> result<span class="op">;</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    result = a <span class="op">+</span> b<span class="op">;</span></span>
@@ -244,12 +244,12 @@
 <p>Enjoy AGS!</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ScriptingTutorialPart2.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/ScriptingTutorialPart2.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

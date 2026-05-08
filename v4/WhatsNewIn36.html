@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Upgrading to AGS 3.6</title>
+  <title>What's new in AGS 3.6</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -73,8 +73,8 @@
   <div class="content">
     <article>
       <main>
-<section id="upgrading-to-ags-36" class="level2">
-<h2><a href="#upgrading-to-ags-36">Upgrading to AGS 3.6</a></h2>
+<section id="whats-new-in-ags-36" class="level2">
+<h2><a href="#whats-new-in-ags-36">What's new in AGS 3.6</a></h2>
 <p>AGS version 3.6 is another big change to AGS. First of all, this release presents a SDL2-based engine. For about 2 decades the AGS engine was based on the Allegro 4 graphic library, which was discontinued somewhere in the early 2010s, so this is overdue.</p>
 <p>Secondly, both the Editor and the Engine have full Unicode support now. This means that you may use any language whatsoever in scripts, object descriptions, and custom properties, as well as translations, - so long as you also provide proper Unicode fonts.</p>
 <p>Then, we have expanded a list of platforms that the Editor can directly build the game for: now this includes Android and Web (Emscripten).</p>
@@ -114,7 +114,7 @@
 <p>As a part of the Unicode support, and also to make key handling in the script more consistent, the script callbacks for key input were extended.</p>
 <p>First of all, the <code>on_key_press</code> function now supports a second optional argument <code>mod</code>. It's optional, so you don't have to declare it, but if you do then you'll get its benefits.</p>
 <p>The extended function definition now is:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> key<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> key<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>The <code>mod</code> argument describes which key modifiers were enabled when this exact key was pressed. It's different from, for example, using <code>IsKeyPressed()</code> in <code>repeatedly_execute</code> callback, because the engine may receive several key-presses between two game frames, while <code>IsKeyPressed</code> only tells the last state of the key. Using <code>mod</code> argument is 100% reliable.</p>
 <p>But the <code>mod</code> contains a <em>set of flags</em>, and is slightly more complicated: as you should not use regular comparison (==, !=) with it, but a bitwise operator (&amp;):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
@@ -191,12 +191,12 @@
 <li>the new <code>on_text_input</code> script function will be active and receive <strong>printable characters</strong>;</li>
 </ul>
 <p>In the new mode each key pressed triggers <code>on_key_press</code>, and when the pressed keys form a printable character an <code>on_text_input</code> function is called. This function must look simply like this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_text_input</span><span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_text_input</span><span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
 <p>Its argument (<code>ch</code>) contains a Unicode character's code. It may be used, for example, to append to a String, or add to the text field or label.</p>
 <p>Similarly to the above, <code>dialog_options_key_press</code> had been expanded with the third <code>mod</code> argument:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_options_key_press</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">eKeyCode</span> keycode<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">dialog_options_key_press</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">eKeyCode</span> keycode<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>And there's now <code>dialog_options_text_input</code> callback for receiving unicode chars during the custom dialog options state:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_options_text_input</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">dialog_options_text_input</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
 </section>
 <section id="new-game-package-options" class="level3">
 <h3><a href="#new-game-package-options">New game package options</a></h3>
@@ -281,19 +281,19 @@
 </ul>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/UpgradeTo36.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/WhatsNewIn36.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
     
     <aside>
 <ul>
-<li><a href="#upgrading-to-ags-36" id="toc-upgrading-to-ags-36">Upgrading to AGS 3.6</a>
+<li><a href="#whats-new-in-ags-36" id="toc-whats-new-in-ags-36">What's new in AGS 3.6</a>
 <ul>
 <li><a href="#unicode-support" id="toc-unicode-support">Unicode support</a></li>
 <li><a href="#changes-to-key-input-handling" id="toc-changes-to-key-input-handling">Changes to key input handling</a></li>

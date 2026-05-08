@@ -77,14 +77,14 @@
 <h2><a href="#extender-functions">Extender functions</a></h2>
 <p>Extender functions allow you to "add" new functions to existing types, including built-in AGS types, which lets you call them as if they were part of that type.</p>
 <p>Let's look at the following example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">Scream</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This is a regular function that accepts a Character as a parameter, and makes it say something. You would call this function as:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Scream<span class="op">(</span>cEgo<span class="op">);</span> <span class="co">// pass cEgo character as a function parameter</span></span></code></pre></div>
 <p>Now, the <em>extender function</em> would instead be declared like:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -93,7 +93,7 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scream</span><span class="op">();</span> <span class="co">// call the function Scream from character cEgo</span></span></code></pre></div>
 <p>Extender functions exist purely for convenience (in programming this is called "syntax sugar"). They do not add any new abilities, rather than to be able to call the function from an object instead of passing this object as a parameter. They use <code>this</code> keyword to address the object they were called from. Besides that, extender functions are just like ordinary functions: they may have multiple parameters, and return some value.</p>
 <p>The common use-case for extender functions is writing custom behavior for built-in types. Consider following, more sophisticated example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">SayAndAnimate</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">,</span> <span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SayAndAnimate</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">,</span> <span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>view<span class="op">);</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span>loop<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
@@ -134,12 +134,12 @@
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ExtenderFunctions.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/ExtenderFunctions.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

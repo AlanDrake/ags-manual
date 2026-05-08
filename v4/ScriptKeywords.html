@@ -499,7 +499,7 @@ You need to do this inside a function.</p>
 <p><strong>function</strong> <em>name</em> <code>(</code> [<em>type1 param1</em>, <em>type2 param2</em>, ... ] <code>)</code></p>
 <p>Declares a custom function in your script. A function is a way in which you can separate out commonly used code into its own place, and thus avoid duplicating code.</p>
 <p>For example, suppose that you quite often want to play a sound and add an inventory item at the same time. You could write both commands each time, or you could define a custom function:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">AddInvAndPlaySound</span><span class="op">(</span><span class="bu">InventoryItem</span><span class="op">*</span> item<span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">AddInvAndPlaySound</span><span class="op">(</span><span class="bu">InventoryItem</span><span class="op">*</span> item<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>item<span class="op">);</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    aInventorySound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -509,7 +509,7 @@ You need to do this inside a function.</p>
 <p>Generally, you place your functions in your global script or other script modules. You then need to add an <a href="ScriptKeywords.html#import"><code>import</code></a> line to the respective script header to allow the function to be called from room scripts.</p>
 <p><strong>Optional parameters</strong></p>
 <p>You can make <em>int</em> parameters optional if there is a default value that the user doesn't need to supply. To do this, change the script header <em>import</em> declaration like this:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">TestFunction</span><span class="op">(</span><span class="dt">int</span> stuff<span class="op">,</span> <span class="dt">int</span> things = <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">void</span> <span class="fu">TestFunction</span><span class="op">(</span><span class="dt">int</span> stuff<span class="op">,</span> <span class="dt">int</span> things = <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>that declares a function with a mandatory <em>stuff</em> parameter, and an optional <em>things</em> parameter. If the caller does not supply the second parameter, it will default to 5.</p>
 <p><strong>NOTE:</strong> To use optional parameters, you need to have an "import" declaration for the function in the script header. The default values cannot be specified in the actual function declaration itself.</p>
 <hr />
@@ -523,7 +523,7 @@ You need to do this inside a function.</p>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Alternatively, when function is not supposed to have any return value, sometimes you may want to break out of current function before it ends naturally:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoThisAndOptionallyThat</span><span class="op">(</span><span class="dt">bool</span> do_all<span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">DoThisAndOptionallyThat</span><span class="op">(</span><span class="dt">bool</span> do_all<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// multiple statements here</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>do_all<span class="op">)</span></span>
@@ -589,7 +589,7 @@ You need to do this inside a function.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Apple<span class="op">*</span> apple2 = my_apple<span class="op">;</span></span></code></pre></div>
 <p>This does <strong>not</strong> copy object itself, only its address in dynamic pool, meaning both variables - <code>my_apple</code> and <code>apple2</code> - point to same object!</p>
 <p>You may write a function that take such pointer as parameter:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DisplayAppleDescription</span><span class="op">(</span>Apple<span class="op">*</span> apple<span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">DisplayAppleDescription</span><span class="op">(</span>Apple<span class="op">*</span> apple<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> s = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Apple has color %d and freshness %d&quot;</span><span class="op">,</span> apple<span class="op">.</span><span class="at">color</span><span class="op">,</span> apple<span class="op">.</span><span class="at">freshness</span><span class="op">);</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span>s<span class="op">);</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -624,7 +624,7 @@ You need to do this inside a function.</p>
 <span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co">// At the game start we create a new dynamic object of Apple type</span></span>
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">// and assign its address to the pointer variable</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">game_start</span><span class="op">()</span></span>
 <span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    SomeApple = <span class="kw">new</span> Apple<span class="op">;</span></span>
 <span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -636,7 +636,7 @@ You need to do this inside a function.</p>
 <p><strong>enum</strong> <em>name</em> <code>{</code><br> <em>option1</em> [ = <em>value1</em> ],<br> <em>option2</em> [ = <em>value2</em> ],<br> ...<br> <code>};</code></p>
 <p>Declares an enumeration type. An enumeration allows you to group together a set of related options, where only one will be true at any one time -- a bit like the contents of a list box.</p>
 <p>For example, if you have a script function, <em>doStuff</em>, that can perform 3 different operations, you could do this:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doStuff</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">doStuff</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something</span></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
@@ -651,7 +651,7 @@ You need to do this inside a function.</p>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    DoLaundry</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doStuff</span><span class="op">(</span>DoStuffOption param<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">doStuff</span><span class="op">(</span>DoStuffOption param<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> BakeCake<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something</span></span>
 <span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
@@ -675,10 +675,10 @@ You need to do this inside a function.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> myValue<span class="op">;</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">function</span> <span class="fu">MyMethod</span><span class="op">();</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="dt">void</span> <span class="fu">MyMethod</span><span class="op">();</span></span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>Then, in your main script, you could put this:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyStruct::MyMethod</span><span class="op">()</span></span>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">MyStruct::MyMethod</span><span class="op">()</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">myValue</span> = <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -694,7 +694,7 @@ You need to do this inside a function.</p>
 <p>Declares <em>declaration</em> as a variable or function which is external to the current script, but that the script needs access to it. You use this to provide your room scripts with access to parts of your global script.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">int</span> counter<span class="op">;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">add_numbers</span> <span class="op">(</span><span class="dt">int</span><span class="op">,</span> <span class="dt">int</span><span class="op">);</span></span></code></pre></div>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">int</span> <span class="fu">add_numbers</span> <span class="op">(</span><span class="dt">int</span><span class="op">,</span> <span class="dt">int</span><span class="op">);</span></span></code></pre></div>
 <p>This imports an integer variable <code>counter</code> and the function <code>add_numbers</code> from the global script to enable the current script to call them. You normally place import statements into the script header so that all rooms can benefit from them.</p>
 <p>In order to import the variable, it must have been exported from the global script with the <a href="ScriptKeywords.html#export">export keyword</a>.</p>
 <p><strong>NOTE:</strong> You <strong>MUST</strong> import external variables with the correct type. If <code>counter</code> was declared as a <strong>short</strong> in the global script, you MUST import it as a short, otherwise your game may crash.</p>
@@ -772,12 +772,12 @@ You need to do this inside a function.</p>
 <p>without the "noloopcheck" keyword here, AGS would abort that script.</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ScriptKeywords.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/ScriptKeywords.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

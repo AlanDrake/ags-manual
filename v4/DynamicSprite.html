@@ -83,7 +83,7 @@
 <section id="dynamicspritecreate" class="level3">
 <h3><a href="#dynamicspritecreate"><code>DynamicSprite.Create</code></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                           optional <span class="dt">bool</span> hasAlphaChannel<span class="op">)</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                           optional ColorFormat color_format<span class="op">)</span></span></code></pre></div>
 <p>Creates a new blank dynamic sprite of the specified size. It will initially be fully transparent, and can optionally have an alpha channel. This command is useful if you just want to create a new sprite and then use the DrawingSurface commands to draw onto it.</p>
 <p>If the game color depth is lower than 32-bit, then the <em>hasAlphaChannel</em> parameter will be ignored.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
@@ -100,6 +100,7 @@
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>oMyObject<span class="op">.</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>globalSprite = sprite<span class="op">;</span> <span class="co">// keep the sprite in a global variable</span></span></code></pre></div>
 <p>creates a 50x30 sprite, draws a white dot in the middle, then assigns to a global variable to keep the sprite, and sets this sprite's ID to an Object.</p>
+<p><em>Compatibility:</em> Optional <code>color_format</code> parameter is supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a>, <a href="DynamicSprite.html#dynamicspritegetdrawingsurface"><code>DynamicSprite.GetDrawingSurface</code></a></p>
 <hr />
 </section>
@@ -127,9 +128,8 @@
 <h3><a href="#dynamicspritecreatefromdrawingsurface"><code>DynamicSprite.CreateFromDrawingSurface</code></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromDrawingSurface</span><span class="op">(</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">DrawingSurface</span><span class="op">*</span> surface<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">),</span></span></code></pre></div>
 <p>Creates a new dynamic sprite containing a copy of the specified portion of the drawing surface. This allows you to easily create new sprites from portions of other sprites.</p>
-<p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>UseHighResCoordinates</code></a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Declare a variable in a global scope (outside of any function)</span></span>
@@ -151,7 +151,7 @@
 <section id="dynamicspritecreatefromexistingsprite" class="level3">
 <h3><a href="#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a></h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">bool</span> preserveAlphaChannel<span class="op">)</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> slot<span class="op">,</span> optional ColorFormat format<span class="op">)</span></span></code></pre></div>
 <p>Creates a new dynamic sprite containing a copy of the specified sprite <em>slot</em>.</p>
 <p>Returns the DynamicSprite instance representing the new sprite. This function is useful as it effectively allows you to apply transformations such as resizing to any sprite in the game.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
@@ -169,6 +169,7 @@
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>oMyObject<span class="op">.</span><span class="at">Graphic</span> = newSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>globalSprite = newSprite<span class="op">;</span> <span class="co">// keep the sprite in a global variable</span></span></code></pre></div>
 <p>creates a copy of object's current sprite, draws a line across, and assigns back to the same object.</p>
+<p><em>Compatibility:</em> Optional <code>color_format</code> parameter is supported by <strong>AGS 4.0.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a></p>
 <hr />
 </section>
@@ -322,7 +323,7 @@
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
 <p>will load the CustomAvatar.bmp image, flip it upside down, and then draw it onto the room background at (100,100).</p>
-<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriterotate"><code>DynamicSprite.Rotate</code></a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriterotate"><code>DynamicSprite.Rotate</code></a>, <a href="StandardEnums.html#eflipdirection"><code>eFlipDirection</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritegetdrawingsurface" class="level3">
@@ -403,7 +404,7 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">,</span> <span class="dt">int</span> saturation<span class="op">,</span> <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
 <p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent saturation. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
 <p>The tint set by this function is permanent for the dynamic sprite -- after the tint has been set, it is not possible to remove it. If you call Tint again with different parameters, it will apply the new tint to the already tinted sprite from the first call.</p>
-<p><strong>NOTE:</strong> This function only works with hi-color sprites.</p>
+<p><strong>NOTE:</strong> This function only works with true-color sprites.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
@@ -475,12 +476,12 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a></p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/DynamicSprite.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/DynamicSprite.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

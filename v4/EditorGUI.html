@@ -117,7 +117,7 @@
 <p>The "Z-Order" setting allows you to set which order the GUIs are drawn in, i.e. when there are two GUIs that overlap this determines which one will be drawn in front of the other. The Z-order setting is an arbitrary number between 0 and 1000. AGS draws the GUIs in order, from the lowest value (0) at the back to the highest value (1000) at the front.</p>
 <p>The "Clickable" setting allows you to set whether the GUI and buttons on it respond to mouse clicks. This is on by default, but if you turn it off and the player clicks on the GUI, the game will actually process the click as if they clicked through the GUI onto the actual screen. This is useful for transparent GUIs which are only used to display information.</p>
 <p>You'll notice that the GUIs also have names. These can be used in the script in a similar way to using character names. For example, if a GUI is called "gIconBar", you can use reference it in a script by using this name. For example, to configure the visibility of GUI when the game starts:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">game_start</span><span class="op">()</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    gIconBar<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -151,21 +151,9 @@
 <td><code>@OVERHOTSPOT@</code></td>
 <td>The name of the hotspot which the cursor is over</td>
 </tr>
-<tr class="odd">
-<td><code>@SCORE@</code></td>
-<td>The player's current score</td>
-</tr>
-<tr class="even">
-<td><code>@SCORETEXT@</code></td>
-<td>The text "Score: X of XX" with the relevant numbers filled in</td>
-</tr>
-<tr class="odd">
-<td><code>@TOTALSCORE@</code></td>
-<td>The maximum possible score, specified on the Game Settings pane</td>
-</tr>
 </tbody>
 </table>
-<p>Example: <code>"You have @SCORE@ out of @TOTALSCORE@ points."</code></p>
+<p>Example: <code>"Your cursor is over @OVERHOTSPOT@."</code></p>
 <p>The Properties window also allows you to align the text to the left, to the right or center it, as well as change its font and color.</p>
 <hr />
 </section>
@@ -213,12 +201,12 @@
 <p>The OnSelectionChanged event is fired when the player clicks on an item in the list. You may wish to ignore this or do something useful with it.</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/EditorGUI.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/EditorGUI.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

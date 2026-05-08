@@ -75,9 +75,7 @@
       <main>
 <section id="text-parser" class="level2">
 <h2><a href="#text-parser">Text Parser</a></h2>
-<section id="overview" class="level3">
-<h3><a href="#overview">Overview</a></h3>
-<p>You can use a text parser in your games if you wish to, much as the older Sierra games did. Go to the "Text parser" pane in the editor. There, you will see a short list of words which are provided for you. Each word has a number beside it.</p>
+<p>You can now use a text parser in your games if you wish to, much as the older Sierra games did. Go to the "Text parser" pane in the editor. There, you will see a short list of words which are provided for you. Each word has a number beside it.</p>
 <p>Basically, you add words you want to use by right-clicking the list, and selecting "Add word". However, the real beauty of the parser is its ability to recognize synonyms - that is, two words that mean the same thing. So, for example, if you wanted the player to type "look at fence", they might well type "look at wall" instead, if that's how they see the drawing. Or, a British person might type "colour" whereas an American might type "color", both of which should have the same effect.</p>
 <p>To add a synonym for an existing word, highlight the current word, right-click it and choose "Add synonym". You'll notice that the new word is given the same number as the old one. All words with the same number are considered identical by the parser.</p>
 <p>You will notice that the provided list has a lot of words with number 0. This is a special number, that indicates that the parser should ignore the word completely. In our previous example, the player might type "look at the fence", "look at fence", or just "look fence". By adding words like "at" and "the" to the ignore list, they get stripped out of the user's input automatically. To add new ignore words, just select an existing one and add a synonym.</p>
@@ -117,7 +115,6 @@
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">CallRoomScript</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>Then, the room script can check for things that the player can do in the current room. See the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> description for more information.</p>
-</section>
 <section id="multi-words" class="level3">
 <h3><a href="#multi-words">Multi-words</a></h3>
 <p>Multi-words are words which contain spaces, for example "blue key", "box of matches" or "stone hammer". While you can add them to the parser and use in Said commands just like regular words, keep in mind the parser will <strong>always match the longest word</strong> it finds which can lead to complications if you have words that prefix each other.</p>
@@ -130,12 +127,12 @@
 <p>To avoid this risk prefer using one-word synonyms for your multi-words (for example add "blue-key" as a synonym of "blue key" to the parser and use the former in your Said commands so that it's always clear where word boundaries are).</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/TextParser.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/TextParser.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
@@ -144,7 +141,6 @@
 <ul>
 <li><a href="#text-parser" id="toc-text-parser">Text Parser</a>
 <ul>
-<li><a href="#overview" id="toc-overview">Overview</a></li>
 <li><a href="#multi-words" id="toc-multi-words">Multi-words</a></li>
 </ul></li>
 </ul>

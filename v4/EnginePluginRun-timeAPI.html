@@ -381,7 +381,7 @@ If the bitmap color depth is 24 bit, the return value needs to be accessed in bl
 <h4>IAGSEngine.GetScreenDimensions</h4>
 <div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetScreenDimensions <span class="op">(</span><span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>coldepth<span class="op">);</span></span></code></pre></div>
 <p>Fills in the supplied variables with the game's <strong>native</strong> screen resolution. You can pass any of the parameters as NULL if you don't want to know them. Color depth is reported in bits (8, 16 or 32).</p>
-<p><strong>NOTE:</strong> this is native resolution of the game, NOTE the final display mode. For example, 320x200 games may be run scaled up to 1920x1080, and 8-bit and 16-bit games may be displayed in 32-bit display mode. This function only tells the game's internal parameters, and therefore is mostly useful if your plugin is doing drawing over a "virtual screen" bitmap (see <a href="EnginePluginRun-timeAPI.html#iagsenginegetvirtualscreen">GetVirtualScreen()</a>).</p>
+<p><strong>NOTE:</strong> this is native resolution of the game, NOTE the final display mode. For example, 320x200 games may be run scaled up to 1920x1080, and 8-bit games may be displayed in 32-bit display mode. This function only tells the game's internal parameters, and therefore is mostly useful if your plugin is doing drawing over a "virtual screen" bitmap (see <a href="EnginePluginRun-timeAPI.html#iagsenginegetvirtualscreen">GetVirtualScreen()</a>).</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginedrawtext" class="level4">
@@ -401,7 +401,7 @@ If the bitmap color depth is 24 bit, the return value needs to be accessed in bl
 <h4>IAGSEngine.GetBitmapDimensions</h4>
 <div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetBitmapDimensions <span class="op">(</span>BITMAP <span class="op">*</span>bmp<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>coldepth<span class="op">);</span></span></code></pre></div>
 <p>Fills in the supplied integer variables with the properties of the specified bitmap. You can pass any of the last three parameters as NULL if you don't want to know them.</p>
-<p><code>width</code> is the width of the bitmap, in pixels. <code>height</code> is the height of the bitmap, in pixels. <code>coldepth</code> is the color depth of the bitmap. Note that this is not necessarily the same as the game color depth, since it is possible to use 256-color backgrounds in a hi-color game. Before doing any direct bitmap drawing, you should check this to make sure that you cast the pointer correctly.</p>
+<p><code>width</code> is the width of the bitmap, in pixels. <code>height</code> is the height of the bitmap, in pixels. <code>coldepth</code> is the color depth of the bitmap. Note that this is not necessarily the same as the game color depth, since it is possible to use 256-color backgrounds in a true-color game. Before doing any direct bitmap drawing, you should check this to make sure that you cast the pointer correctly.</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginegetnumbackgrounds" class="level4">
@@ -641,8 +641,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 <div class="sourceCode" id="cb59"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetRawPixelColor <span class="op">(</span><span class="dt">int</span> color<span class="op">);</span></span></code></pre></div>
 <p>Converts <code>color</code>, as specified in the AGS Editor, to the appropriate raw pixel color for the current graphics mode.</p>
 <p>If the user is running 8-bit color, the value is returned unchanged.</p>
-<p>If the user is running 16-bit color, the value is returned unchanged <em>unless</em> it is less than 32, in which case it is converted to be the appropriate locked color from the editor.</p>
-<p>If the user is running 15-bit color, the value is converted to an appropriate 15-bit RGB pixel value.</p>
+<p>If the user is running 32-bit color, the value is returned unchanged.</p>
 <p><em>Added in version: 10</em></p>
 </section>
 <section id="iagsenginegetspritewidth" class="level4">
@@ -1384,12 +1383,12 @@ struct AGSGameInfo {
 </section>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/EnginePluginRun-timeAPI.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/EnginePluginRun-timeAPI.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

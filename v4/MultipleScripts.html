@@ -81,34 +81,34 @@
 <p>The scripts for the game can be seen under the "Scripts" node in the project tree. Each script has its own header, which is where you place the <a href="ScriptKeywords.html#import"><code>import</code></a> definitions for that script to allow the rest of your game to access its functionality.</p>
 <p>The order of the scripts is important. A script can only use functionality from other scripts that come before it in the list, so the Move Up and Move Down options allow you to adjust the order. The global script is always at the bottom so that it can access all other scripts, and room scripts are automatically provided with access to all the scripts.</p>
 <p>As an example, suppose you want to have a special <em>AddNumbers</em> function in a module. You'd create a new script, then put this in its header file (.ASH):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">int</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">);</span></span></code></pre></div>
 <p>Then, in the script file (.ASC) you could put:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>That's the basic principle behind using multiple scripts!</p>
 <p><strong>Predefined functions</strong></p>
 <p>Can extra scripts use predefined functions like <code>game_start</code> and <code>repeatedly_execute</code>? Yes, they can use most of these. They can contain the following functions, and they will be called at the appropriate times just before the global script's function is:</p>
 <ul>
-<li>function game_start()</li>
-<li>function on_event(EventType event, int data)</li>
-<li>function on_key_press(eKeyCode keycode, int mod)</li>
-<li>function on_mouse_click(MouseButton button, int mx, int my)</li>
-<li>function on_text_input(int ch)</li>
-<li>function repeatedly_execute()</li>
-<li>function repeatedly_execute_always()</li>
-<li>function late_repeatedly_execute_always()</li>
+<li>void game_start()</li>
+<li>void on_event(EventType event, int data)</li>
+<li>void on_key_press(eKeyCode keycode, int mod)</li>
+<li>void on_mouse_click(MouseButton button, int mx, int my)</li>
+<li>void on_text_input(int ch)</li>
+<li>void repeatedly_execute()</li>
+<li>void repeatedly_execute_always()</li>
+<li>void late_repeatedly_execute_always()</li>
 </ul>
 <p>Few other special functions, such as <code>dialog_request</code>, will only be called in the Global Script, even if they exist in another script. If you need other scripts to handle any of this functionality, you can simply create a custom function in the script and then call it from the global script.</p>
 <p>The <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> command is supported for on_key_press, on_mouse_click and on_event. Calling it prevents the rest of the scripts (including the global script) from being called.</p>
 <p><em>See also:</em> <a href="ImportingFunctionsAndVariables.html">Importing functions and variables in other scripts</a>, <a href="Globalfunctions_Event.html">Global event handlers</a></p>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/MultipleScripts.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/MultipleScripts.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

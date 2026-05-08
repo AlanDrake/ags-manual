@@ -262,24 +262,45 @@
 <p><em>See also:</em> <a href="Maths.html#mathssqrt"><code>Maths.Sqrt</code></a></p>
 <hr />
 </section>
+<section id="mathsrandom" class="level3">
+<h3><a href="#mathsrandom"><code>Maths.Random</code></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Random</span><span class="op">(</span><span class="dt">int</span> limit<span class="op">)</span></span></code></pre></div>
+<p>Returns a random number in the range of 0 to LIMIT-1.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="mathsrandomfloat" class="level3">
+<h3><a href="#mathsrandomfloat"><code>Maths.RandomFloat</code></a></h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">RandomFloat</span><span class="op">()</span></span></code></pre></div>
+<p>Returns a random float in the range of [0.0, 1.0) (including 0 but excluding 1).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="mathsround" class="level3">
+<h3><a href="#mathsround"><code>Maths.Round</code></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Round</span><span class="op">(</span><span class="dt">float</span> value<span class="op">,</span> <span class="dt">RoundDirection</span><span class="op">)</span></span></code></pre></div>
+<p>Rounds the given float towards chosen direction, and returns a result as a new float.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 4.0.0</strong> and later versions.</p>
+<hr />
+</section>
 <section id="mathssin" class="level3">
 <h3><a href="#mathssin"><code>Maths.Sin</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sin</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sin</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
 <p>Calculates the sine of the specified angle (in radians).</p>
 <p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> sine = <span class="bu">Maths</span><span class="op">.</span><span class="at">Sin</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">360.0</span><span class="op">));</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> sine = <span class="bu">Maths</span><span class="op">.</span><span class="at">Sin</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">360.0</span><span class="op">));</span></span></code></pre></div>
 <p>calculates the sine of 360 degrees (which is 0) and places it into variable <em>sine</em>.</p>
 <p><em>See also:</em> <a href="Maths.html#mathsarcsin"><code>Maths.ArcSin</code></a>, <a href="Maths.html#mathssinh"><code>Maths.Sinh</code></a>, <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>, <a href="Maths.html#mathscos"><code>Maths.Cos</code></a>, <a href="Maths.html#mathstan"><code>Maths.Tan</code></a></p>
 <hr />
 </section>
 <section id="mathssinh" class="level3">
 <h3><a href="#mathssinh"><code>Maths.Sinh</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sinh</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sinh</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
 <p>Calculates the hyperbolic sine of the specified angle (in radians).</p>
 <p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hsine = <span class="bu">Maths</span><span class="op">.</span><span class="at">Sinh</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">360.0</span><span class="op">));</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hsine = <span class="bu">Maths</span><span class="op">.</span><span class="at">Sinh</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">360.0</span><span class="op">));</span></span></code></pre></div>
 <p>calculates the hyperbolic sine of 360 degrees and places it into variable <em>hsine</em>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Maths.html#mathsarcsin"><code>Maths.ArcSin</code></a>, <a href="Maths.html#mathssin"><code>Maths.Sin</code></a>, <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>, <a href="Maths.html#mathscosh"><code>Maths.Cosh</code></a>, <a href="Maths.html#mathstanh"><code>Maths.Tanh</code></a></p>
@@ -287,33 +308,33 @@
 </section>
 <section id="mathssqrt" class="level3">
 <h3><a href="#mathssqrt"><code>Maths.Sqrt</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sqrt</span><span class="op">(</span><span class="dt">float</span> value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Sqrt</span><span class="op">(</span><span class="dt">float</span> value<span class="op">)</span></span></code></pre></div>
 <p>Calculates the square root of the supplied value.</p>
 <p>The square root is the number which, when multiplied by itself, equals <em>value</em>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The square root of 4 is %d!&quot;</span><span class="op">,</span> <span class="bu">FloatToInt</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">Sqrt</span><span class="op">(</span><span class="fl">4.0</span><span class="op">)));</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The square root of 4 is %d!&quot;</span><span class="op">,</span> <span class="bu">FloatToInt</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">Sqrt</span><span class="op">(</span><span class="fl">4.0</span><span class="op">)));</span></span></code></pre></div>
 <p>displays the square root of 4 (rounded down to the nearest integer).</p>
 <p><em>See also:</em> <a href="Maths.html#mathscos"><code>Maths.Cos</code></a>, <a href="Maths.html#mathsraisetopower"><code>Maths.RaiseToPower</code></a>, <a href="Maths.html#mathssin"><code>Maths.Sin</code></a>, <a href="Maths.html#mathstan"><code>Maths.Tan</code></a></p>
 <hr />
 </section>
 <section id="mathstan" class="level3">
 <h3><a href="#mathstan"><code>Maths.Tan</code></a></h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Tan</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Tan</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
 <p>Calculates the tangent of the specified angle (in radians).</p>
 <p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> tan = <span class="bu">Maths</span><span class="op">.</span><span class="at">Tan</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">45.0</span><span class="op">));</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> tan = <span class="bu">Maths</span><span class="op">.</span><span class="at">Tan</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">45.0</span><span class="op">));</span></span></code></pre></div>
 <p>calculates the tan of 45 degrees (which is 1.0) and places it into variable <em>tan</em>.</p>
 <p><em>See also:</em> <a href="Maths.html#mathsarctan"><code>Maths.ArcTan</code></a>, <a href="Maths.html#mathstanh"><code>Maths.Tanh</code></a>, <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>, <a href="Maths.html#mathscos"><code>Maths.Cos</code></a>, <a href="Maths.html#mathssin"><code>Maths.Sin</code></a></p>
 <hr />
 </section>
 <section id="mathstanh" class="level3">
 <h3><a href="#mathstanh"><code>Maths.Tanh</code></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Tanh</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Tanh</span><span class="op">(</span><span class="dt">float</span> radians<span class="op">)</span></span></code></pre></div>
 <p>Calculates the hyperbolic tangent of the specified angle (in radians).</p>
 <p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> htan = <span class="bu">Maths</span><span class="op">.</span><span class="at">Tanh</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">45.0</span><span class="op">));</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> htan = <span class="bu">Maths</span><span class="op">.</span><span class="at">Tanh</span><span class="op">(</span><span class="bu">Maths</span><span class="op">.</span><span class="at">DegreesToRadians</span><span class="op">(</span><span class="fl">45.0</span><span class="op">));</span></span></code></pre></div>
 <p>calculates the hyperbolic tan of 45 degrees and places it into variable <em>htan</em>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Maths.html#mathsarctan"><code>Maths.ArcTan</code></a>, <a href="Maths.html#mathstan"><code>Maths.Tan</code></a>, <a href="Maths.html#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a>, <a href="Maths.html#mathscos"><code>Maths.Cos</code></a>, <a href="Maths.html#mathssin"><code>Maths.Sin</code></a></p>
@@ -321,20 +342,20 @@
 </section>
 <section id="mathspi" class="level3">
 <h3><a href="#mathspi"><code>Maths.Pi</code></a></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Pi</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Pi</span></span></code></pre></div>
 <p>Gets the value of Pi (defined as 3.14159265358979323846).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Pi is %f!&quot;</span><span class="op">,</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Pi</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Pi is %f!&quot;</span><span class="op">,</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">Pi</span><span class="op">);</span></span></code></pre></div>
 <p>displays the value of Pi.</p>
 <p><em>See also:</em> <a href="Maths.html#mathscos"><code>Maths.Cos</code></a>, <a href="Maths.html#mathssin"><code>Maths.Sin</code></a>, <a href="Maths.html#mathstan"><code>Maths.Tan</code></a></p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Maths.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/Maths.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
@@ -357,6 +378,9 @@
 <li><a href="#mathslog10" id="toc-mathslog10"><code>Maths.Log10</code></a></li>
 <li><a href="#mathsradianstodegrees" id="toc-mathsradianstodegrees"><code>Maths.RadiansToDegrees</code></a></li>
 <li><a href="#mathsraisetopower" id="toc-mathsraisetopower"><code>Maths.RaiseToPower</code></a></li>
+<li><a href="#mathsrandom" id="toc-mathsrandom"><code>Maths.Random</code></a></li>
+<li><a href="#mathsrandomfloat" id="toc-mathsrandomfloat"><code>Maths.RandomFloat</code></a></li>
+<li><a href="#mathsround" id="toc-mathsround"><code>Maths.Round</code></a></li>
 <li><a href="#mathssin" id="toc-mathssin"><code>Maths.Sin</code></a></li>
 <li><a href="#mathssinh" id="toc-mathssinh"><code>Maths.Sinh</code></a></li>
 <li><a href="#mathssqrt" id="toc-mathssqrt"><code>Maths.Sqrt</code></a></li>

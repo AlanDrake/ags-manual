@@ -118,9 +118,6 @@ eEventLeaveRoom
 eEventLeaveRoomAfterFadeout
         called when leaving a room, right after fade-out, but while room is still in memory
         DATA1 = room number they are leaving
-eEventGotScore
-        called whenever the player&#39;s score changes
-        DATA1 = number of points they&#39;ve received
 eEventGUIMouseDown
         called when a mouse button is pressed down over a GUI
         DATA1 = GUI number
@@ -169,7 +166,7 @@ eEventUserEvent
         this is not a real event, but defines a minimal value for user events (see [`SendEvent`](Globalfunctions_General#SendEvent)).</code></pre>
 <p><strong>NOTE:</strong> when you write this function in your script, you do not have to declare it with all 4 "data" arguments, you may put only first 1 or 2 instead, and the engine will correctly discard unused parameters without error. This also helps when you upgrade older projects to the latest version of AGS.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
@@ -270,170 +267,8 @@ eEventUserEvent
 </section>
 <section id="unhandled_event" class="level3">
 <h3><a href="#unhandled_event"><code>unhandled_event</code></a></h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>unhandled_event <span class="op">(</span><span class="dt">int</span> what<span class="op">,</span> <span class="dt">int</span> type<span class="op">)</span></span></code></pre></div>
-<p>Called when an event occurs, but no corresponding event handler has been configured. This is typically used to display a default "I can't do that" type response in-order to avoid having to add unique messages for all in-game interactions. The values of WHAT and TYPE tell you what the player did. The possible values are listed below:</p>
-<table>
-<thead>
-<tr class="header">
-<th>WHAT</th>
-<th>TYPE</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>1</td>
-<td>Look at hotspot</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>2</td>
-<td>Interact with hotspot</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>3</td>
-<td>Use inventory on hotspot</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>4</td>
-<td>Talk to hotspot</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>7</td>
-<td>Pick up hotspot</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>8</td>
-<td>Cursor Mode 8 on hotspot</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>9</td>
-<td>Cursor Mode 9 on hotspot</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>0</td>
-<td>Look at object</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>1</td>
-<td>Interact with object</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>2</td>
-<td>Talk to object</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>3</td>
-<td>Use inventory on object</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>5</td>
-<td>Pick up object</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>6</td>
-<td>Cursor Mode 8 on object</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>7</td>
-<td>Cursor Mode 9 on object</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>0</td>
-<td>Look at character</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>1</td>
-<td>Interact with character</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>2</td>
-<td>Speak to character</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>3</td>
-<td>Use inventory on character</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>5</td>
-<td>Pick up character</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>6</td>
-<td>Cursor Mode 8 on character</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>7</td>
-<td>Cursor Mode 9 on character</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>1</td>
-<td>Look at nothing (i.e. no hotspot)</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>2</td>
-<td>Interact with nothing</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>3</td>
-<td>Use inventory with nothing</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>4</td>
-<td>Talk to nothing</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>0</td>
-<td>Look at inventory</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>1</td>
-<td>Interact with inventory (currently not possible)</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>2</td>
-<td>Speak to inventory</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>3</td>
-<td>Use an inventory item on another</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>4</td>
-<td>Other click on inventory</td>
-</tr>
-</tbody>
-</table>
-<p><strong>NOTE:</strong> the "Character stands on hotspot" event does not trigger this function, nor will it be triggered if there is an "Any click" event handler defined, nor if the player clicks on nothing (hotspot 0)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>unhandled_event<span class="op">(</span><span class="dt">LocationType</span> what<span class="op">,</span> <span class="dt">CursorMode</span> mode<span class="op">)</span></span></code></pre></div>
+<p>Called when an interaction event occurs for an object, but no corresponding event handler has been set. This is typically used to display a default "I can't do that" type response in-order to avoid having to add unique messages for all in-game interactions. The values of WHAT and MODE tell you what the player did. The possible values for WHAT are defined by <a href="StandardEnums.html#locationtype">LocationType</a> enum, and MODE is one of the cursor modes.</p>
 <hr />
 </section>
 <section id="on_call" class="level3">
@@ -443,12 +278,12 @@ eEventUserEvent
 <p>It's called after the function <code>CallRoomScript(value)</code> is executed, but not immediately. You can read an arbitrary integer value passed from <code>CallRoomScript</code>. Additional information is <a href="Globalfunctions_General.html#callroomscript">available here</a>.</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Globalfunctions_Event.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/Globalfunctions_Event.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

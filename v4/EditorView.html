@@ -122,22 +122,24 @@
 <p><img src="images/EditorView_4.png" /></p>
 <p><em>Delay</em><br />
 With the delay setting you delay the displaytime of the selected <em>frame</em> by a set amount. This delay is in game frames, so how long the delay is in time depends on how many frames per second your game is running at. You can check the game-speed with the <a href="Globalfunctions_General.html#getgamespeed"><code>GetGameSpeed</code></a> function. By default AGS games run at 40 FPS, but this can be configured by setting the desired frame rate using the <a href="Globalfunctions_General.html#setgamespeed"><code>SetGameSpeed</code></a> function. This delay value is specific to this single frame only. To add delay to an entire animation, use the delay parameter of the <a href="Object.html#objectanimate"><code>Animate</code></a> function instead. This frame delay is added to the overall loop delay.</p>
-<p><em>Flipped</em><br />
+<p><em>Flip</em><br />
 You can flip a single frame with this property. This is very useful for mirrored animations, such as walkcycles, where a flipped version of the walk-left animation and be used to walk right, for example. Note that instead of flipping just a single frame you can also flip the whole loop by using the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a>.</p>
 <p><em>Image</em><br />
 The sprite number for this frame's image, as displayed in the <a href="EditorSprite.html">Sprite Manager</a>.</p>
+<p><em>XOffset</em> <em>YOffset</em> The optional relative x,y offset for this frame's graphic.</p>
 <p><em>ID</em><br />
 The will display the frame number within the loop, for the selected frame. This value is not directly editable.</p>
 <p><em>Sound</em><br />
 Play a sound when this frame is displayed. This is typically used to add footsteps to character walkcycles.</p>
+<p><em>EventName</em> A custom event string tag. If frame is assigned a "event name", then whenever this frame is displayed during object's animation, that object will trigger its OnFrameEvent event, passing current frame's "event name" as parameter.</p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/EditorView.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/EditorView.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

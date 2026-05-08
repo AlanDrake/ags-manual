@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Upgrading to AGS 3.3</title>
+  <title>What's new in AGS 3.3</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -73,14 +73,13 @@
   <div class="content">
     <article>
       <main>
-<section id="upgrading-to-ags-33" class="level2">
-<h2><a href="#upgrading-to-ags-33">Upgrading to AGS 3.3</a></h2>
+<section id="whats-new-in-ags-33" class="level2">
+<h2><a href="#whats-new-in-ags-33">What's new in AGS 3.3</a></h2>
 <p>AGS 3.3 editor contains a major change to user interface that now lets you to "unpin" visual panels, drag them to any place you want and dock them or optionally leave them in "floating" mode. You may also have more than one editing panel on screen at once, for example room editor and script editor. This allows everyone to customize the panes layout in AGS to their own taste.</p>
 <p>You may now create folders for characters, dialogs, inventory items, guis, rooms, scripts and views, move them up/down by context menu, and drag&amp;drop items to change their order. The "Sort room by number" command now sorts within folders.</p>
 <p>Script and header files are now combined into one group item, similar to room settings and script.</p>
 <p><strong>Proper alpha blending</strong></p>
 <p>AGS now features proper alpha blending when drawing GUI Controls and using Drawing Surfaces. This feature is enabled by two separate options in the "Visual" section of the General Settings: "GUI alpha rendering style" and "Sprite alpha rendering style". This is done for compatibility with projects created in previous versions of AGS. When importing a project in AGS 3.3 these options will retain their original values. You may consider setting them to "Proper alpha blending", but that may alter the appearance of your game. New projects will have "proper blending" mode set by default.</p>
-<p>To support alpha blending a new <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfohasalphachannel"><code>HasAlphaChannel</code></a> property has been added to DialogOptionsRenderingInfo class. This property must be set it in <a href="CustomDialogOptions.html"><code>dialog_options_get_dimensions</code></a> function, the one where you normally define size and position of the drawing surface.</p>
 <p><strong>System limits update</strong></p>
 <p>The maximal number of Fonts has been increased from 15 to 30.</p>
 <p><strong>New Speech class</strong></p>
@@ -128,19 +127,19 @@
 <p><strong>Translated ListBox</strong></p>
 <p>In the previous versions of AGS the ListBox items were never translated. A new "Translated" property has been added to ListBox class, which forces engine to translate ListBox items. Default value is True but it is recommended to set it to False if you are using ListBox for listing savedgames. <strong>NOTE:</strong> when older projects are imported, it is set to False automatically.</p>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/UpgradeTo33.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/WhatsNewIn33.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
     
     <aside>
 <ul>
-<li><a href="#upgrading-to-ags-33" id="toc-upgrading-to-ags-33">Upgrading to AGS 3.3</a></li>
+<li><a href="#whats-new-in-ags-33" id="toc-whats-new-in-ags-33">What's new in AGS 3.3</a></li>
 </ul>
     </aside>
   </div>

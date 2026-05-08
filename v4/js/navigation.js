@@ -54,21 +54,23 @@ var topics = `<ul class="level-0">
 </ul>
 
 <li><span><a id="topic-FAQ" href="FAQ.html">Frequently Asked Questions</span></a>
-<li><span><a id="topic-UpgradingFromPreviousVersion" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</span></a>
+<li><span><a id="topic-WhatsNewIn40" href="WhatsNewIn40.html">What’s new in AGS 4.0</span></a>
+<li><span><a id="topic-UpgradingTo40" href="UpgradingTo40.html">Upgrading To AGS 4.0</span></a>
+<li><span><a id="topic-WhatsInNewVersionsAndUpgrading" href="WhatsInNewVersionsAndUpgrading.html">What’s in new versions and upgrading</span></a>
 <ul class="level-2">
-<li><span><a id="topic-UpgradingTo27" href="UpgradingTo27.html">UpgradingTo27</span></a>
-<li><span><a id="topic-UpgradingTo271" href="UpgradingTo271.html">UpgradingTo271</span></a>
-<li><span><a id="topic-UpgradeTo30" href="UpgradeTo30.html">UpgradeTo30</span></a>
-<li><span><a id="topic-UpgradeTo31" href="UpgradeTo31.html">UpgradeTo31</span></a>
-<li><span><a id="topic-UpgradeTo32" href="UpgradeTo32.html">UpgradeTo32</span></a>
-<li><span><a id="topic-UpgradeTo33" href="UpgradeTo33.html">UpgradeTo33</span></a>
-<li><span><a id="topic-UpgradeTo335" href="UpgradeTo335.html">UpgradeTo335</span></a>
-<li><span><a id="topic-UpgradeTo341" href="UpgradeTo341.html">UpgradeTo341</span></a>
-<li><span><a id="topic-UpgradeTo34" href="UpgradeTo34.html">UpgradeTo34</span></a>
-<li><span><a id="topic-UpgradeTo35" href="UpgradeTo35.html">UpgradeTo35</span></a>
-<li><span><a id="topic-UpgradeTo36" href="UpgradeTo36.html">UpgradeTo36</span></a>
-<li><span><a id="topic-UpgradeTo361" href="UpgradeTo361.html">UpgradeTo361</span></a>
-<li><span><a id="topic-UpgradeTo362" href="UpgradeTo362.html">UpgradeTo362</span></a>
+<li><span><a id="topic-WhatsNewIn362" href="WhatsNewIn362.html">What’s new in AGS 3.6.2</span></a>
+<li><span><a id="topic-WhatsNewIn361" href="WhatsNewIn361.html">What’s new in AGS 3.6.1</span></a>
+<li><span><a id="topic-WhatsNewIn36" href="WhatsNewIn36.html">What’s new in AGS 3.6</span></a>
+<li><span><a id="topic-WhatsNewIn35" href="WhatsNewIn35.html">What’s new in AGS 3.5</span></a>
+<li><span><a id="topic-WhatsNewIn341" href="WhatsNewIn341.html">What’s new in AGS 3.4.1</span></a>
+<li><span><a id="topic-WhatsNewIn34" href="WhatsNewIn34.html">What’s new in AGS 3.4</span></a>
+<li><span><a id="topic-WhatsNewIn335" href="WhatsNewIn335.html">What’s new in AGS 3.3.5</span></a>
+<li><span><a id="topic-WhatsNewIn33" href="WhatsNewIn33.html">What’s new in AGS 3.3</span></a>
+<li><span><a id="topic-WhatsNewIn32" href="WhatsNewIn32.html">What’s new in AGS 3.2</span></a>
+<li><span><a id="topic-WhatsNewIn31" href="WhatsNewIn31.html">What’s new in AGS 3.1</span></a>
+<li><span><a id="topic-WhatsNewIn30" href="WhatsNewIn30.html">What’s new in AGS 3.0</span></a>
+<li><span><a id="topic-WhatsNewIn271" href="WhatsNewIn271.html">What’s new in AGS 2.7.1</span></a>
+<li><span><a id="topic-WhatsNewIn27" href="WhatsNewIn27.html">What’s new in AGS 2.7</span></a>
 </ul>
 
 </li></ul>
@@ -240,22 +242,33 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-TextBox" href="TextBox.html">GUI Text Box functions and properties</span></a>
 <li><span><a id="topic-Hotspot" href="Hotspot.html">Hotspot functions and properties</span></a>
 <li><span><a id="topic-InventoryItem" href="InventoryItem.html">Inventory item functions and properties</span></a>
+<li><span><a id="topic-Joystick" href="Joystick.html">Joystick functions and properties</span></a>
+<li><span><a id="topic-MaskPathfinder" href="MaskPathfinder.html">MaskPathfinder functions and properties</span></a>
 <li><span><a id="topic-Maths" href="Maths.html">Maths functions and properties</span></a>
 <li><span><a id="topic-Mouse" href="Mouse.html">Mouse functions and properties</span></a>
+<li><span><a id="topic-MotionPath" href="MotionPath.html">MotionPath functions and properties</span></a>
 <li><span><a id="topic-Object" href="Object.html">Object functions and properties</span></a>
 <li><span><a id="topic-Overlay" href="Overlay.html">Overlay functions and properties</span></a>
 <li><span><a id="topic-Parser" href="Parser.html">Parser functions</span></a>
+<li><span><a id="topic-Pathfinder" href="Pathfinder.html">Pathfinder functions and properties</span></a>
 <li><span><a id="topic-Region" href="Region.html">Region functions and properties</span></a>
 <li><span><a id="topic-RestoredSaveInfo" href="RestoredSaveInfo.html">RestoredSaveInfo properties</span></a>
 <li><span><a id="topic-Room" href="Room.html">Room functions and properties</span></a>
 <li><span><a id="topic-Screen" href="Screen.html">Screen functions and properties</span></a>
 <li><span><a id="topic-Set" href="Set.html">Set functions and properties</span></a>
+<li><span><a id="topic-ShaderInstance" href="ShaderInstance.html">ShaderInstance functions and properties</span></a>
+<li><span><a id="topic-ShaderProgram" href="ShaderProgram.html">ShaderProgram functions and properties</span></a>
 <li><span><a id="topic-Speech" href="Speech.html">Speech functions and properties</span></a>
 <li><span><a id="topic-String" href="String.html">String functions</span></a>
 <li><span><a id="topic-System" href="System.html">System functions and properties</span></a>
 <li><span><a id="topic-TextWindowGUI" href="TextWindowGUI.html">TextWindowGUI functions and properties</span></a>
+<li><span><a id="topic-Touch" href="Touch.html">Touch functions and properties</span></a>
+<li><span><a id="topic-TouchPointer" href="TouchPointer.html">TouchPointer functions and properties</span></a>
+<li><span><a id="topic-VideoPlayer" href="VideoPlayer.html">VideoPlayer functions and properties</span></a>
 <li><span><a id="topic-ViewFrame" href="ViewFrame.html">ViewFrame functions and properties</span></a>
 <li><span><a id="topic-Viewport" href="Viewport.html">Viewport functions and properties</span></a>
+<li><span><a id="topic-WalkableArea" href="WalkableArea.html">WalkableArea functions and properties</span></a>
+<li><span><a id="topic-Walkbehind" href="Walkbehind.html">Walkbehind functions and properties</span></a>
 </ul>
 
 <li><span><a id="topic-ObsoleteScriptAPI" href="ObsoleteScriptAPI.html">Obsolete Script API</span></a>

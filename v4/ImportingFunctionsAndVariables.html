@@ -82,12 +82,12 @@
 <h3><a href="#exporting-and-importing-a-function">Exporting and importing a function</a></h3>
 <p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import"><code>import</code></a> keyword. The best practice is to place them in the owner script's header.</p>
 <p>For example, suppose you have the following function in script MyScript.asc:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ScriptAFunction</span><span class="op">(</span><span class="dt">int</span> param1<span class="op">,</span> <span class="dt">int</span> param2<span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">ScriptAFunction</span><span class="op">(</span><span class="dt">int</span> param1<span class="op">,</span> <span class="dt">int</span> param2<span class="op">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// some actions here</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Then the import declaration in the MyScript's header (MyScript.ash) should looks like:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">ScriptAFunction</span><span class="op">(</span><span class="dt">int</span> param1<span class="op">,</span> <span class="dt">int</span> param2<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">void</span> <span class="fu">ScriptAFunction</span><span class="op">(</span><span class="dt">int</span> param1<span class="op">,</span> <span class="dt">int</span> param2<span class="op">);</span></span></code></pre></div>
 <p>The name, type and arguments of the function must be the same, otherwise there will be errors either during compilation or at runtime.</p>
 </section>
 <section id="exporting-and-importing-a-variable" class="level3">
@@ -125,12 +125,12 @@
 <p><em>See also:</em> <a href="ScriptKeywords.html#import">import keyword</a>, <a href="ScriptKeywords.html#export">export keyword</a></p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ImportingFunctionsAndVariables.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/ImportingFunctionsAndVariables.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

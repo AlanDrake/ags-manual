@@ -79,8 +79,8 @@
 <hr />
 <section id="palette-setup" class="level3">
 <h3><a href="#palette-setup">Palette setup</a></h3>
-<p>The first thing you need to do when you create a new game is to decide whether you want to use 8-bit (palette-based) color or 32/16-bit (true-color / hi-color). If you want to use 32/16-bit color, you can still use 256-color backgrounds and sprites if you want to, but the engine will only run in a 32-bit color resolution, thus slowing it down.</p>
-<p>If you want to use 8-bit, you need to set up the palette. This is because all sprite and background scene imports rely on the palette setup to be the same. You <strong>CANNOT</strong> use hi-color nor true-color sprites or backgrounds in a 256-color game.</p>
+<p>The first thing you need to do when you create a new game is to decide whether you want to use 8-bit (palette-based) color or 32-bit (true-color). If you want to use 32-bit color, you can still use 256-color backgrounds and sprites if you want to, but the engine will only run in a 32-bit color resolution, thus slowing it down.</p>
+<p>If you want to use 8-bit, you need to set up the palette. This is because all sprite and background scene imports rely on the palette setup to be the same. You <strong>CANNOT</strong> use true-color sprites or backgrounds in a 256-color game.</p>
 <p>All this means, use 8-bit color only when you know what you are doing or when you intentionally want to punish yourself with lots of nerdy fumbling around on settings for colormodes that were not artist's decisions but actual hardware limitations of the time and every artist is glad these restrictions are no longer in place.</p>
 <p>But you can do really cool color cycling effects only in 8-bit games, other than that this is really outdated technology, but it still works of course, and how it works is explained in the next paragraphs.</p>
 <p>You set your chosen color depth by opening the General Settings pane and adjusting the Color Depth setting near the top of the list.</p>
@@ -105,7 +105,7 @@
 <p>When you were choosing the graphics for the object earlier in this tutorial, you probably noticed that most of the graphics available didn't look up to much. This is no problem, because you can import your own graphics using the Sprite Manager.</p>
 <p>Go to the <strong>Sprites</strong> pane in the editor. Here, you will see the complete sprite set for the game. There are two ways to import your graphics - either overwrite an existing slot with your graphic, or create a new slot for it.</p>
 <p>To overwrite an existing sprite, right-click the sprite and select "Replace sprite from file". To import a new slot, right-click on the background to the window and choose "Import new sprite".</p>
-<p>The graphic you choose to import must be at the same color depth as your game (i.e. if you are using hi-color backgrounds, your sprites must be hi-color, and vice versa). AGS will attempt to convert the image if possible, but if your game is 256-color then the results of downgrading a hi-color image can be poor.</p>
+<p>The graphic you choose to import must be at the same color depth as your game (i.e. if you are using true-color backgrounds, your sprites must be true-color, and vice versa). AGS will attempt to convert the image if possible, but if your game is 256-color then the results of downgrading a true-color image can be poor.</p>
 <p>Then, the Import Sprite window will appear. Here, you need to decide which portion of the image will be imported. You do this by right-clicking and dragging in the image, which will produce a yellow rectangle showing the selection. Once you are happy with it, left-click to import. Alternatively, you can import the entire image with the "Import whole image" button.</p>
 <p><em>NOTE (256-color only): You may well find that the colors on your graphic look slightly strange in the AGS Editor. This is because the sprites are only allocated, by default, the first 41 of the palette colors (see the <a href="Settingupthegame.html#palette-setup">palette section</a>), so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colors assigned to sprites, at the expense of background colors (again see the section above for information on how to do this).</em></p>
 <p>If your sprite will only be used in one room then alternatively you can use the "use background palette" option, which will remap your graphic to the palette of the room currently loaded, giving much better results. Note, however, that if you do this, and then try and use the sprite on another screen, its colors will most likely be screwed up. To use the room palette, check the "Use room background" check-box. Make sure to un-check this box before you import any other sprites.</p>
@@ -240,12 +240,12 @@
 <p>Return to Tutorials Index: <a href="StartingOff.html">Tutorials Index</a></p>
 </section>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Settingupthegame.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/Settingupthegame.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>

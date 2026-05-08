@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Upgrading to AGS 3.3.5</title>
+  <title>What's new in AGS 3.3.5</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -73,8 +73,8 @@
   <div class="content">
     <article>
       <main>
-<section id="upgrading-to-ags-335" class="level2">
-<h2><a href="#upgrading-to-ags-335">Upgrading to AGS 3.3.5</a></h2>
+<section id="whats-new-in-ags-335" class="level2">
+<h2><a href="#whats-new-in-ags-335">What's new in AGS 3.3.5</a></h2>
 <p>Since 3.3.5 AGS does not allow to <strong>write</strong> any files into other path rather than "<code>$SAVEGAMEDIR$</code>" (personal user saves directory) or "<code>$APPDATADIR$</code>" (all-users game data directory). If you attempt to open file for <strong>writing</strong> using relative path without location tag, the filepath will be automatically remapped to <code>$APPDATADIR$</code> location.</p>
 <p>Because of that, for backwards compatibility reasons, when you try to open file for reading using relative path without location tag, AGS will first look for that file in <code>$APPDATADIR$</code>, and only if no matching file is found there, then the game installation directory will be checked.</p>
 <p>To force opening file in the game installation directory (for reading) a new location tag was introduced: "<code>$INSTALLDIR$</code>". When using this tag you will explicitly tell AGS to look in and only in the game's installation directory. However, if you try opening file for writing at such location, that will result in failure.</p>
@@ -82,19 +82,19 @@
 <p>Conceptually, AGS is gradually leaning towards using only "symbols of file locations" rather than actual, explicit locations on the filesystem.</p>
 <p>Furthermore, game setup will now write config file into game saves location, rather than game's installation directory. If config file is present in the game installation folder, then it is used as "default" read-only config file. The config in saves folder overrides default one. This way it should be totally safe to install AGS games into C:/Program Files, without having administrative rights.</p>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/UpgradeTo335.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/WhatsNewIn335.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
     
     <aside>
 <ul>
-<li><a href="#upgrading-to-ags-335" id="toc-upgrading-to-ags-335">Upgrading to AGS 3.3.5</a></li>
+<li><a href="#whats-new-in-ags-335" id="toc-whats-new-in-ags-335">What's new in AGS 3.3.5</a></li>
 </ul>
     </aside>
   </div>

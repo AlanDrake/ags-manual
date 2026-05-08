@@ -78,21 +78,22 @@
 <p>You will no doubt want to back up your game files, and should do so regularly during your game development. But which files should you back up?</p>
 <p>When taking a backup, make sure you copy <strong>ALL</strong> the files listed below:</p>
 <ul>
-<li><strong>GAME.AGF</strong> - this is the main data file for your game and contains almost all the game settings. Without it, your game is lost.</li>
-<li><strong>ACSPRSET.SPR</strong> - this is your game's sprite file, containing all the sprites from the sprite manager.</li>
-<li><strong>ROOM*.CRM</strong> - all the ROOM*.CRM files are your room files, and obviously without one of them you wouldn't be able to go into that room any longer.</li>
-<li><strong>*.ASC, *.ASH</strong> - these are your script files, and contain all of your scripting handywork.</li>
-<li><strong>*.TRS</strong> - translation source files. They contain any translations that you've had done.</li>
-<li><strong>AGSFNT*.TTF, AGSFNT*.WFN</strong> - these files contain any fonts you have imported.</li>
+<li><code>Game.agf</code> - this is the main data file for your game and contains almost all the game settings. Without it, your game is lost.</li>
+<li><code>acsprset.spr</code> - this is your game's sprite file, containing all the sprites from the sprite manager. You can alternatively backup your sprites sources and restore from the editor <em>File</em> -&gt; <em>Restore all sprites from source</em> menu.</li>
+<li><code>Rooms\</code> - this directory contains a directory for each room, with each containing a xml file for the room data, a <code>.asc</code> room script, and png files for masks and backgrounds.</li>
+<li><code>*.asc</code>, <code>*.ash</code> - these are your script files, and contain all of your scripting handywork.</li>
+<li><code>*.trs</code> - translation source files. They contain any translations that you've had done.</li>
+<li><code>Fonts\</code>- should contain any <code>*.wfn</code> or <code>*.ttf</code> font you have imported.</li>
+<li><code>Speech\</code> - this depends if your game has any speech audio files, if it does you will need to backup this directory.</li>
 </ul>
-<p>Also remember to back up any sound, music and video files you are using.</p>
+<p>Also remember to back up any <strong>sound</strong>, <strong>music</strong> and <strong>video</strong> files you are using.</p>
 </section>
-      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/BackingUpYourGame.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/ags4/BackingUpYourGame.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 37ba72bc3c1d27d0101e11436f437f5224257e94
+          Build: 06418b40a1acf3896d8055645102e0584a58d506
         </p>
       </footer>
     </article>
